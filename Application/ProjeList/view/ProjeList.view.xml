@@ -1,0 +1,43 @@
+<mvc:View
+	controllerName="SapUI5Tutorial.Application.ProjeList.controller.ProjeList"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:tnt="sap.tnt"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.f" 
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page id="companyTicketPage_ID" showHeader="false" enableScrolling="false">
+    <Table class="table" id="productsTable" items="{
+		path: '/projeList',
+			sorter: {
+				path: 'name'
+			}
+	}" >
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Proje Listesi"/>
+				<ToolbarSpacer/>
+                <Button text="Yeni Proje"  press="newproject" width="150px" icon="sap-icon://add" />
+				<Button text="Yeni Ticket"  press="addTicket" width="150px" icon="sap-icon://add-activity" />
+                <Button text="Ticket ekranı" press="ticketlist"  icon="sap-icon://activity-items" width="150px" />
+				<Button text="Personeller" press="personellist" icon="sap-icon://employee-pane" width="150px" />
+				<Button type="Reject" press="out" icon="sap-icon://visits" />
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column id="projeAd">
+				<Title text="Proje Adı" level="H1"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Active" press="editProject" class="columnList">
+				<cells>
+					<Label text="{projeName} "/>				
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	</Page>
+	
+</mvc:View>           

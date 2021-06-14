@@ -1,0 +1,131 @@
+<mvc:View controllerName="SapUI5Tutorial/Application/addTicket/controller/addTicket"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:tnt="sap.tnt"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+	xmlns:b="SapUI5Tutorial.resources.component"
+    >
+    <Page enableScrolling="false" showHeader="false" class="sapUiContentPadding">
+		<tnt:ToolHeader>
+				<Label text="Ticket Ekle"/>
+		<ToolbarSpacer>
+		<layoutData>
+			<OverflowToolbarLayoutData  />
+			</layoutData>
+		</ToolbarSpacer>
+				<Button text="Proje Listesi"  press="newProject" width="100px" icon="sap-icon://add"/>
+                <Button text="Ticket Listesi" press="ticketList" icon="sap-icon://activity-items" />
+				<Button text="Personeller" press="personelList" icon="sap-icon://employee-pane" />
+				<Button text="Çıkış yap" press="out" icon="sap-icon://visits"/>
+	</tnt:ToolHeader>
+        <content>  
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start">
+                <Label text="Proje : " labelFor="input-project" />
+				<ComboBox
+					width="250PX"
+					value="{/ticket/proje}"
+					class="sapUiTinyMargin"
+                	id="comboBox"
+					items="{
+					path: '/projeList',
+					sorter: { path: '/projeList' }
+					}">
+				<core:Item key="{id}" text="{projeName}" />                
+				</ComboBox>
+			</FlexBox>
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start" >
+				<Label text="Konu :"/>
+                 <Input
+					value="{/ticket/subject}"
+					width="250PX"
+			    	id="subjectInput"
+			    	placeholder=""
+			    	class="sapUiTinyMargin" />
+            </FlexBox>
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start">
+				<Label text="Kimden : " labelFor="input-project" />
+				<b:multiInput  width="235px"
+				value="{/ticket/from}"
+				id="multiInputy"
+				liveWord="MultiControl"
+				suggestionItems="{
+				path: '/users',
+				sorter: { path: 'users' }
+				}"
+				showValueHelp="false"
+				class="sapUiTinyMargin">
+			<core:Item key="{id}" text="{User}" />
+			</b:multiInput>
+			</FlexBox>
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start">
+				<Label text="Kime : " labelFor="input-project" />
+				<b:multiInput  width="120%"
+				value="{/ticket/to}"
+				id="multiInputx"
+				liveWord="MultiControl"
+				suggestionItems="{
+				path: '/personelList',
+				sorter: { path: '' }
+				}"
+				showValueHelp="false"
+				class="sapUiTinyMargin">
+			<core:Item key="{id}" text="{ad}" />
+			</b:multiInput>
+			</FlexBox>
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start" >
+				<Label text="Başlangıç Tarihi:" labelFor="DTI1"/>
+				<DateTimeInput
+				value="{/ticket/start}"
+				id="DTI1"
+				type="Date"
+				placeholder="Enter Date"
+				class="sapUiTinyMargin" />
+			</FlexBox>  
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start">
+				<Label text="Bitiş Tarihi:" labelFor="DTI2"/>
+			<DateTimeInput
+				value="{/ticket/finish}"
+				change="datePickerChange"
+				id="DTI2"
+				type="Date"
+				placeholder="Enter Date"
+				class="sapUiTinyMargin" />
+			</FlexBox>  
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Start" >
+                <Label text="Durum: " labelFor="input-status" />
+				<ComboBox
+					maxWidth="8rem"
+					selectedKey="{/ticket/statu}"
+					value="{/ticket/statu}"
+					class="sapUiTinyMargin"
+                	id="comboBox1"
+					items="{
+					path: '/status',
+					sorter: { path: '/status' }
+					}">
+				<core:Item key="{id}" text="{stats}" />                
+				</ComboBox>
+			</FlexBox>					  
+			<FlexBox
+				height="100px">
+				<Button text="Kaydet" press="addTicket" id="saveButton" class="sapUiTinyMarginTop" type="Accept" width="200px"/>
+				<Button	id="deleteButton" visible="true" icon="sap-icon://delete" press="clear" class="sapUiTinyMarginTop" type="Reject"/>
+			</FlexBox>  
+           </content>
+    </Page>
+</mvc:View>

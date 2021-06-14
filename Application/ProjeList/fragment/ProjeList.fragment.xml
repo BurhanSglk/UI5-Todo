@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:f="sap.f"
+   xmlns:html="http://www.w3.org/1999/xhtml">
+   <Dialog stretch="true" showHeader="false" binding="{/myuser}" horizontalScrolling="false" class="sapUiContentPadding global-dialog" beforeOpen="afterOpen" id="dialog">
+      <content id="content">
+         <VBox alignItems="Center">
+            <Input value="{/proje/name}" placeholder="Proje Adı" class="sapUiSmallMarginTop" id="projeInput"/>
+            <Button text="Projeyi Kaydet" press="onCloseAddProje"/>
+            <Button text="Projeyi Düzenle" press="editProje"/>
+            <Button text="Projeyi Sil" press="deleteProje"/>
+            <Button text="Çıkış" press="screenOut" type="Reject"/>
+            <!-- <html:button class="signout-button" id="close-btn" press="onCloseAddProje">
+               Projeyi Kaydet
+            </html:button> -->
+            <!-- <Button text="Oturumu Kapat" class="signout-button" press="onSesionClose"/> -->
+         </VBox>
+      </content>
+   </Dialog>
+</core:FragmentDefinition>

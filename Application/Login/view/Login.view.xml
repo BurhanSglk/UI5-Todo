@@ -1,0 +1,49 @@
+<mvc:View
+	controllerName="SapUI5Tutorial.Application.Login.controller.Login"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:tnt="sap.tnt"
+	xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	>
+    <Page showHeader="false" enableScrolling="false" class="logınPage">
+		<content>
+			<!-- <tnt:ToolHeader width="250%">
+			</tnt:ToolHeader>	 -->
+			 <html:div class="login-wrapper" >
+			 <html:form class="">
+			 <html:H1 class="logınHeader">LogIn</html:H1>
+			 <html:hr></html:hr>
+			<FlexBox
+				direction="Column" alignItems="Center" class="sapUiSmallMargin">
+				 <html:span class="input-title">Email</html:span>
+					<Input
+					value="{/log/email}"
+					valueLiveUpdate="true"
+                    width="250px"
+					placeholder="Enter your email..."
+					class="sapUiTinyMargin"
+					/>
+				<html:span class="input-title2">Password</html:span>    
+                   	<Input
+					type="Password"
+					value="{/log/sifre}"
+					valueLiveUpdate="true"
+                    width="250px"
+					placeholder="Enter your password..."
+					class="sapUiTinyMargin"
+					/>
+					<Button
+					text="LogIn"
+					press="logIn"
+                    width="125px"
+					type="Transparent"
+					class="Deneme"
+					/>
+				</FlexBox>	
+				</html:form>
+				 </html:div>
+		</content>
+	</Page>
+</mvc:View>           

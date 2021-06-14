@@ -1,0 +1,98 @@
+<mvc:View
+	controllerName="SapUI5Tutorial/Application/TicketList/controller/TicketList"
+	xmlns="sap.ui.table"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:l="sap.ui.layout"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    height="100%">
+	<m:Page
+		showHeader="false"
+		enableScrolling="false"
+		class="ticketListPage">
+		<m:Button
+			icon="sap-icon://activity-items"
+			text="Proje List"			
+			tooltip="show context of latest selection item"	        
+			press="projeList"/>
+		<m:Button
+			icon="sap-icon://add-activity"
+			text="Add Ticket"			
+			tooltip="show context of latest selection item"	        
+			press="addTicket"/>
+		<m:Button
+			icon="sap-icon://account"
+			text="Personel List"			
+			tooltip="show context of latest selection item"	        
+			press="personelList"/>
+		<m:content>
+			<Table
+				rows="{/ticket}"
+				selectionMode="Single"
+				visibleRowCount="5"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+						<m:Title id="title" text="TicketList"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="10rem">
+						<m:Label text="Proje" />
+						<template>
+							<m:Text text="{proje}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="10rem">
+						<m:Label text="Konu" />
+						<template>
+							<m:Text text="{subject}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="10rem">
+						<m:Label text="Kimden" />
+						<template>
+							<m:Label text="{kimden}" />
+						</template>
+					</Column>
+					<Column width="10rem">
+						<m:Label text="Kime" />
+						<template>
+							<m:Label text="{kime}" />
+						</template>
+					</Column>
+					<Column width="10rem">
+						<m:Label text="Durum" />
+						<template>
+							<m:Label text="{statu}" />
+						</template>
+					</Column>
+					<Column width="10rem">
+						<m:Label text="Başlangıç" />
+						<template>
+							<m:Label text="{baslangıc}" />
+						</template>
+					</Column>
+					<Column width="10rem">
+						<m:Label text="Bitiş" />
+						<template>
+							<m:Label text="{bitis}" />
+						</template>
+					</Column>				
+				</columns>
+				<contextMenu>
+						<u:Menu>
+							<u:MenuItem select="contextMenu"  text="Add"/>
+							<u:MenuItem select="contextMenu"  text="Update"/>
+							<u:MenuItem select="contextMenu"  text="Delete"/>			
+						</u:Menu>		
+				</contextMenu>		
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>

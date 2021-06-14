@@ -1,0 +1,120 @@
+<mvc:View
+	controllerName="SapUI5Tutorial.Application.PersonelList.controller.PersonelList"
+	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<SplitApp
+		id="SplitAppDemo"
+		initialDetail="detail"
+		class="splitApp"
+		initialMaster="master"
+		orientationChange=".onOrientationChange"
+		>
+		<detailPages>
+			<Page
+				id="detail"
+				title="Personel Ekleme"
+				backgroundDesign= "Solid"
+				class="sapUiStdPage"
+			>
+			<tnt:ToolHeader>
+				<Label text="Personel Ekle"/>
+			<ToolbarSpacer>
+			<layoutData>
+			<OverflowToolbarLayoutData  />
+			</layoutData>
+			</ToolbarSpacer>
+			</tnt:ToolHeader>
+				<Label text="Ad"  class="sapUiSmallMarginTop"/>
+				<Input value="{/personel/ad}" placeholder="Adınızı Giriniz"  id="nameInput" />
+				<Label text="Soyad"  class="sapUiSmallMarginTop"/>
+				<Input value="{/personel/soyad}" placeholder="Soyadınızı Giriniz" class=""/>
+				<Label text="E-Mail" class="sapUiSmallMarginTop" />
+				<Input value="{/personel/mail}" placeholder="Mail Adresinizi Giriniz" class=""  id="email_Input" />
+				<Label text="TelNo" class="sapUiSmallMarginTop" />
+				<Input value="{/personel/telno}" placeholder="Telefon Numaranızı Giriniz" class=""/>
+				<Label text="Şifre" class="sapUiSmallMarginTop" />
+				<Input value="{/personel/password}" placeholder="Default Şifre" width="100%" />
+				<Label text="Fotoğraf"  class="sapUiSmallMarginTop"/>
+				<FlexBox/>
+				<u:FileUploader
+				id="fileUploader"
+				name="myFileUpload"
+				uploadUrl="upload/"
+				change="onChange"
+				tooltip="Upload your file to the local server"
+				uploadComplete="handleUploadComplete"
+				value="{/personel/foto}"
+				class=""/>
+				
+				<FlexBox/>
+				<Button press="add" text="Kaydet" width="100px"   id="add" class="deneme"/>
+				<Button press="update" text="Düzenle" width="250px" type="Accept" id="update" visible="false"/>
+				<Button
+					visible="false"
+					type="Reject"
+					id="deleteUserButton"
+					icon="sap-icon://delete"												
+					press=".onDelete">
+					<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<FlexBox/>
+			</Page>
+		</detailPages>
+		<masterPages>
+			<Page
+				id="master"
+				title="Personel Listesi"
+				backgroundDesign= "List"
+				class="sapUiStdPage"
+				>
+				<tnt:ToolHeader>
+			<ToolbarSpacer>
+			<layoutData>
+			<OverflowToolbarLayoutData  />
+			</layoutData>
+			</ToolbarSpacer>
+				<Button text="Ticket Ekle"  press="addTicket" width="120px" icon="sap-icon://add" />
+				<Button text="Proje Listesi"  press="newProject" width="120px" icon="sap-icon://documents" />
+                <Button text="Ticket Listesi" press="ticketList" icon="sap-icon://activity-items" width="100px" />
+				<Button text="Çıkış" press="out" icon="sap-icon://visits" type="Reject" width="100px" />
+			</tnt:ToolHeader>
+				<List
+						id="ShortProductList"
+						items="{
+							path: '/personellist',
+							sorter: {
+								path: 'personel'
+							}
+						}">
+						<items>
+									<CustomListItem type="Active" press="itemselect" > 
+										<HBox>
+										<!-- src='data:image/jpeg;base64,d -->
+										<!-- data:image/png;base64,iVBORw0K... -->
+										<!-- src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+ 										//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" -->
+										<Image src='data:image/png;base64/{foto}' width="100px" />						
+											<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >							
+												<Link text="{ad} {soyad}" />
+												<Label/>
+												<Label text="Mail:{mail}"/>
+												<Label/>
+												<Label text="Telefon:{telno} "/>		
+											</VBox>
+										</HBox>
+									</CustomListItem>
+						</items>
+					</List>	
+					
+			</Page>
+			<Input/>
+		</masterPages>
+	</SplitApp>
+</mvc:View>

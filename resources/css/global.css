@@ -1,0 +1,80 @@
+.deneme{
+    width: 250px;
+}
+.table{
+    background-color: #b4e9d3;
+}
+.sapMListTblCell{
+    background-color: #c3eaf5;
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    width: 150px;
+}
+.sapMColumnHeader{
+    height: 20px;
+}
+.sapMPageHeader{
+    background-color: #edf0f1;
+}
+.sapMTBSpacer-sapMTBSpacerFlex-sapMBarChild{
+    width: 350px;
+}
+.sapMInputBaseInner{
+    width: 250px;
+    color: red;
+}
+#nameInput{
+    width: 250px;
+    color: red;
+}
+.login-wrapper{
+    width: 350px;
+    height: 320px;
+    background-color: red;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 15px;
+    background-color: white;
+}
+.input-title{
+    font-size: 20px;
+    margin-right: 200px;
+    margin-top: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.logınHeader{
+    font-size: 35px;
+    margin-left: 120px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.input-title2{
+    font-size: 20px;
+    margin-right: 165px;
+    margin-top: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.logınButton{
+    width: 350px;
+    height: 35px;
+}
+.logınPage{
+    background-image: linear-gradient(120deg, #2980b9 , #8e44ad);
+}
+/* .sapUiSizeCompact .sapMBtnInner.sapMBtnText, .sapUiSizeCompact .sapMBtnInner.sapMBtnIconFirst .deneme {
+    background-color: lime !important;
+    border-radius: 10%;
+} */
+.asd{
+    width: 150px;
+}
+.ticketListPage{
+    background-color: rgb(226, 220, 250);
+}
